@@ -2,12 +2,14 @@ import memoizeOne from 'memoize-one';
 import isEqual from 'lodash/isEqual';
 import { formatMessage } from 'umi-plugin-react/locale';
 import Authorized from '@/utils/Authorized';
+import { queryRoutes } from '@/services/menu';
 import { menu } from '../defaultSettings';
 
 const { check } = Authorized;
 
 // Conversion router to menu.
 function formatter(data, parentAuthority, parentName) {
+  // debugger;
   if (!data) {
     return undefined;
   }
@@ -108,11 +110,14 @@ export default {
   },
 
   effects: {
-    *getMenuData({ payload }, { put }) {
-      const { routes, authority, path } = payload;
+    *getMenuData({ payload }, { call, put }) {
+      // debugger;
+      const { authority, path } = payload; // 改为从后台接口获取菜单即可动态加载,routes从后台获取
+      const routes = yield call(queryRoutes); // 可以将authority从后台查
       const originalMenuData = memoizeOneFormatter(routes, authority, path);
       const menuData = filterMenuData(originalMenuData);
       const breadcrumbNameMap = memoizeOneGetBreadcrumbNameMap(originalMenuData);
+
       yield put({
         type: 'save',
         payload: { menuData, breadcrumbNameMap, routerData: routes },

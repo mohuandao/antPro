@@ -85,6 +85,14 @@ export default {
   //     pathRewrite: { '^/server': '' },
   //   },
   // },
+
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:8080/',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '' },
+    },
+  },
   ignoreMomentLocale: true,
   lessLoaderOptions: {
     javascriptEnabled: true,

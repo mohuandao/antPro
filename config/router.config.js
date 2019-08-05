@@ -17,13 +17,20 @@ export default [
       },
     ],
   },
+
+  //myroute
+
   // app
+
   {
     path: '/',
     component: '../layouts/BasicLayout',
     Routes: ['src/pages/Authorized'],
     routes: [
-      // dashboard
+      // dashboard   这里开始的才是菜单的内容,       新建页面后要把菜单信息里的路由配置在下面
+      // 菜单表里的component无效,要在这里配置
+      { path: '/manager/menu', component: './Manager/MenuManager', name: 'menu' }, // 菜单管理路由
+
       { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
       {
         path: '/dashboard',
@@ -39,6 +46,11 @@ export default [
             path: '/dashboard/monitor',
             name: 'monitor',
             component: './Dashboard/Monitor',
+          },
+          {
+            path: '/dashboard/test',
+            name: 'test',
+            component: './Dashboard/Test',
           },
           {
             path: '/dashboard/workplace',

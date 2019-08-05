@@ -1,6 +1,6 @@
 /**
  * request 网络请求工具
- * 更详细的api文档: https://bigfish.alipay.com/doc/api#request
+ * 更详细的api文档: https://github.com/umijs/umi-request
  */
 import { extend } from 'umi-request';
 import { notification } from 'antd';
@@ -67,6 +67,20 @@ const errorHandler = error => {
 const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
+  // headers:{ 'Authorization': localStorage.getItem("ticket") }, // 所有请求带上ticket,不是最新的ticket,会缓存上一次的值
+});
+// ticket每次为最新值
+request.interceptors.request.use((url, options) => {
+  options.headers = {
+    ...options.headers,
+    Authorization: localStorage.getItem('ticket'),
+  };
+  return {
+    options: {
+      ...options,
+      interceptors: true,
+    },
+  };
 });
 
 export default request;

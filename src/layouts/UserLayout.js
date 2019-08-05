@@ -52,6 +52,9 @@ class UserLayout extends Component {
       location: { pathname },
       breadcrumbNameMap,
     } = this.props;
+
+    // console.log(children)
+
     return (
       <DocumentTitle title={getPageTitle(pathname, breadcrumbNameMap)}>
         <div className={styles.container}>

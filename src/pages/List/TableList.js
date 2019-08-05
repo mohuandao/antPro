@@ -98,6 +98,7 @@ class UpdateForm extends PureComponent {
 
   handleNext = currentStep => {
     const { form, handleUpdate } = this.props;
+    debugger;
     const { formVals: oldValue } = this.state;
     form.validateFields((err, fieldsValue) => {
       if (err) return;
@@ -351,6 +352,7 @@ class TableList extends PureComponent {
   ];
 
   componentDidMount() {
+    debugger;
     const { dispatch } = this.props;
     dispatch({
       type: 'rule/fetch',
@@ -621,6 +623,7 @@ class TableList extends PureComponent {
   }
 
   render() {
+    // debugger;
     const {
       rule: { data },
       loading,

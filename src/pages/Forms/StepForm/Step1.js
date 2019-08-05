@@ -21,6 +21,7 @@ const formItemLayout = {
 @Form.create()
 class Step1 extends React.PureComponent {
   render() {
+    // debugger;
     const { form, dispatch, data } = this.props;
     const { getFieldDecorator, validateFields } = form;
     const onValidateForm = () => {

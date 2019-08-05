@@ -21,7 +21,11 @@ export default {
       });
       // Login successfully
       if (response.status === 'ok') {
-        reloadAuthorized();
+        // 存入localstorage
+        localStorage.setItem('ticket', response.ticket);
+        // 重新加载权限,将权限信息存入localStorage
+        // debugger;
+        // reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         let { redirect } = params;
@@ -49,10 +53,10 @@ export default {
         type: 'changeLoginStatus',
         payload: {
           status: false,
-          currentAuthority: 'guest',
+          // currentAuthority: 'guest',
         },
       });
-      reloadAuthorized();
+      // reloadAuthorized();
       const { redirect } = getPageQuery();
       // redirect
       if (window.location.pathname !== '/user/login' && !redirect) {
@@ -70,7 +74,7 @@ export default {
 
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
+      // setAuthority(payload.currentAuthority);
       return {
         ...state,
         status: payload.status,

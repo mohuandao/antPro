@@ -6,6 +6,7 @@ export default {
   'menu.dashboard': 'Dashboard',
   'menu.dashboard.analysis': '分析页',
   'menu.dashboard.monitor': '监控页',
+  'menu.dashboard.test': '测试',
   'menu.dashboard.workplace': '工作台',
   'menu.form': '表单页',
   'menu.form.basicform': '基础表单',
@@ -42,4 +43,7 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+
+  'menu.manager': '后台管理',
+  'menu.manager.menu': '菜单管理',
 };

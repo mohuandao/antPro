@@ -112,6 +112,7 @@ class BasicList extends PureComponent {
   };
 
   render() {
+    debugger;
     const {
       list: { list },
       loading,

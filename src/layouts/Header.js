@@ -69,9 +69,13 @@ class HeaderView extends Component {
       return;
     }
     if (key === 'logout') {
+      //没必要去请求,直接跳转,清掉ticket
       dispatch({
         type: 'login/logout',
       });
+      //退出后清掉ticket
+      localStorage.removeItem('ticket');
+      //router.push('/user/login'); //退出请求routes应该是跳转页面是进行权限验证,具体在那还不清楚
     }
   };
 
