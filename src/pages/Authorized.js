@@ -1,12 +1,12 @@
 import React from 'react';
 import Redirect from 'umi/redirect';
-import pathToRegexp from 'path-to-regexp';
+// import pathToRegexp from 'path-to-regexp';
 import { connect } from 'dva';
 import Authorized from '@/utils/Authorized';
-import { getAuthority } from '@/utils/authority';
+// import { getAuthority } from '@/utils/authority';
 import Exception403 from '@/pages/Exception/403';
-
-function AuthComponent({ children, location, routerData }) {
+//  function AuthComponent({ children, location, routerData }) {
+function AuthComponent({ children }) {
   // const auth = getAuthority();
   // const isLogin = auth && auth[0] !== 'guest';  //是否登录看 localstorge是否存在 ticket
   const isLogin = localStorage.getItem('ticket');
