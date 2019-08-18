@@ -30,6 +30,7 @@ export default [
       // dashboard   这里开始的才是菜单的内容,       新建页面后要把菜单信息里的路由配置在下面
       // 菜单表里的component无效,要在这里配置
       { path: '/manager/menu', component: './Manager/MenuManager', name: 'menu' }, // 菜单管理路由
+      { path: '/manager/user_role', component: './Manager/MenuManager', name: 'user_role' }, // 用户角色管理
 
       { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
       {
